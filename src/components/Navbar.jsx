@@ -15,7 +15,8 @@ const Navbar = () => {
         </Typography.Title>
         {/* <Button className="menu-control-container">
 
-        </Button> */}
+</Button> */}
+      </div>  
         <Menu theme="dark">
           <Menu.Item icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
@@ -30,7 +31,6 @@ const Navbar = () => {
             <Link to="/news">News</Link>
           </Menu.Item>
         </Menu>
-      </div>
     </div>
   )
 }
