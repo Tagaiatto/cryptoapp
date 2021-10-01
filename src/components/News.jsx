@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Select, Typography, Row, Col, Avatar, Card } from 'antd';
 import moment from 'moment';
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
+import { useGetCryptosQuery } from '../services/cryptoApi';
 
 const demoImg = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg';
 
@@ -11,8 +12,10 @@ const { Option } = Select;
 
 
 const News = ({ simplified }) => {
+  const [newsCategory, setNewsCategory] = useState('Cryptocurrency')
+  const { data } = useGetCryptosQuery(100);
   const { data: cryptoNews } = useGetCryptoNewsQuery({
-     newsCategory: 'Cryptocurrency', count: simplified ? 6 : 12
+     newsCategory, count: simplified ? 6 : 12
     });
   
     // console.log(cryptoNews);
@@ -25,8 +28,13 @@ const News = ({ simplified }) => {
           <Select
             showSearch
             className="select-news"
+            placeholder="Select a Crypto"
+            optionFilterProp="children"
+            onChange={(value) => setNewsCategory(value)}
+            filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase())}
           >
-
+            <Option value="Cryptocurrency">Cryptocurrency</Option>
+            {data?.data?.coins.map((coin) => <Option value={coin.name}>{coin.name}</Option> )}
           </Select>
         
         </Col>
