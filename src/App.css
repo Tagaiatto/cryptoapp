@@ -291,6 +291,7 @@ a:hover {
 }
 .news-card {
 	min-height: 300px !important;
+	/* min-width: 300px; */
 }
 .news-image-container {
 	display: flex !important;
@@ -300,10 +301,18 @@ a:hover {
 	width: 70%;
 }
 
-.news-image-container .img {
+/* .news-image-container .img {
 	width: 100px;
 	height: 100px;
-}
+} */
+
+/* @media screen and (max-width: 500px) {
+	.news-image-container {
+		width: 70px;
+		height: 70px;
+	}
+} */
+
 .news-card p {
 	color: black;
 	margin: 10px 0px !important;
