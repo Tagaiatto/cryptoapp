@@ -1,8 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const cryptoApiHeaders = {
-  'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-  'x-rapidapi-key': 'e308632c45msh387e5943ff24d31p1842e4jsn392d79c2d7fe'
+  'x-rapidapi-host': process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST,
+  'x-rapidapi-key': process.env.REACT_APP_RAPIDAPI_KEY,
 };
 
 const baseUrl = 'https://coinranking1.p.rapidapi.com';
@@ -15,6 +15,9 @@ export const cryptoApi = createApi({
     getCryptos: builder.query({
       query: (count) => createRequest(`/coins?limit=${count}`)
     }),
+    getExchanges: builder.query({
+      query: () => createRequest(`/exchanges`)
+    }),
     getCryptoDetails: builder.query({
       query: (coinId) => createRequest(`/coin/${coinId}`)
     }),
@@ -24,13 +27,4 @@ export const cryptoApi = createApi({
   })
 });
 
-export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } = cryptoApi;
-
-// var options = {
-//   method: 'GET',
-//   url: 'https://coinranking1.p.rapidapi.com/exchanges',
-//   headers: {
-//     'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-//     'x-rapidapi-key': 'e308632c45msh387e5943ff24d31p1842e4jsn392d79c2d7fe'
-//   }
-// };
+export const { useGetCryptosQuery, useGetCryptoDetailsQuery, useGetCryptoHistoryQuery, useGetExchangesQuery } = cryptoApi;
