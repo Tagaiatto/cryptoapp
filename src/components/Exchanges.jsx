@@ -13,10 +13,10 @@ const Exchanges = () => {
 
   const tableColumns = [
     { title: '', dataIndex: 'avatar', key: 'avatar', width: 50, render: iconUrl => <Avatar className="exchange-image" src={iconUrl} /> },
-    { title: 'Exchanges', dataIndex: 'exchanges', key: 'exchanges' },
-    { title: '24h Trade Volume', dataIndex: 'TradeVolume', key: 'TradeVolume' },
-    { title: 'Markets', dataIndex: 'markets', key: 'markets' },
-    { title: 'Change', dataIndex: 'change', key: 'change' },
+    { title: 'Exchanges', dataIndex: 'exchanges', width: 200, key: 'exchanges' },
+    { title: '24h Trade Volume', dataIndex: 'TradeVolume', width: 200, key: 'TradeVolume' },
+    { title: 'Markets', dataIndex: 'markets', width: 200, key: 'markets' },
+    { title: 'Change', dataIndex: 'change', width: 200, key: 'change' },
   ]
 
   const dataTable = exchangesList.map((exchange) => (
