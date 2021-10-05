@@ -16,12 +16,11 @@ const Homepage = () => {
   // console.log(globalStats.total);
 
 
-
+  if(isFetching) return 'Loading...';
   return (
     <>
       <Title level={2} className="heading">Global Crypto Stats</Title>
-      {isFetching ? (<p>Carregando...</p>) : 
-      (<div>
+      <div>
         <Row>
           <Col span={12}><Statistic title="Total Cryptocurrencies" value={globalStats.total} /></Col>
           <Col span={12}><Statistic title="Total Exchanges" value={millify(globalStats.totalExchanges)} /></Col>
@@ -39,9 +38,10 @@ const Homepage = () => {
           <Title level={3} className="show-more"><Link to="/news">Show more</Link></Title>
         </div>
         <News simplified />
-      </div>)}
+      </div>
     </>
   )
 }
+
 
 export default Homepage;
