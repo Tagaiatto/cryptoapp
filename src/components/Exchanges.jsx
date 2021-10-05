@@ -39,7 +39,7 @@ const Exchanges = () => {
         expandable={{
           expandedRowRender: exchange => exchange.description,
           rowExpandable: exchange => exchange.description,
-          expandIcon: ({ expanded, onExpand, record }) => '',
+          expandIconColumnIndex: -1,
         }}
         expandRowByClick={true}
         dataSource={dataTable}
