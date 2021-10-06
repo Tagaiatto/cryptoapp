@@ -2,7 +2,7 @@ import React from 'react';
 import millify from 'millify';
 import { Typography, Row, Col, Statistic } from 'antd';
 import { Link } from 'react-router-dom';
-import { Cryptocurrencies, News } from '../components';
+import { Cryptocurrencies, News, Loader } from '../components';
 
 import { useGetCryptosQuery } from '../services/cryptoApi';
 
@@ -16,7 +16,7 @@ const Homepage = () => {
   // console.log(globalStats.total);
 
 
-  if(isFetching) return 'Loading...';
+  if(isFetching) return <Loader />;
   return (
     <>
       <Title level={2} className="heading">Global Crypto Stats</Title>

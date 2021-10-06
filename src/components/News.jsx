@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import { useGetCryptoNewsQuery } from '../services/cryptoNewsApi';
 import { useGetCryptosQuery } from '../services/cryptoApi';
+import Loader from './Loader';
 
 const demoImg = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg';
 
@@ -19,7 +20,7 @@ const News = ({ simplified }) => {
     });
   
     // console.log(cryptoNews);
-  if(!cryptoNews?.value) return 'Loading...';
+  if(!cryptoNews?.value) return <Loader loadingMessage="Loading news..." />;
 
   return (
     <Row gutter={[24, 24]}>

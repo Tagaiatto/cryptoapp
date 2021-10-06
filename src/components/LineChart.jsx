@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import { Col, Row, Typography } from 'antd';
+import { Loader } from './';
 
 const { Title } = Typography;
 
@@ -8,7 +9,7 @@ const LineChart = ({ coinHistory, currentPrice, coinName }) => {
   const coinPrice = [];
   const coinTimestamp = [];
 
-  if(!coinHistory) return 'Loading Chart...';
+  if(!coinHistory) return <Loader loadingMessage="Loading chart..." />;
   
   for(let i = 0; i < coinHistory?.data?.history?.length; i++) {
     coinPrice.push(coinHistory?.data?.history[i].price);
